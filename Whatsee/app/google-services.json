@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "222844860355",
+    "firebase_url": "https://authwwatch-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "authwwatch",
+    "storage_bucket": "authwwatch.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:222844860355:android:8d161eac64d1a11dfcef76",
+        "android_client_info": {
+          "package_name": "com.example.whatsee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "222844860355-5f1lgrs7tp5lpqm97rav45g57d6v4gcd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtpHhtnL2zvBPZz_ZRu9tYzjbbxi40xnc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "222844860355-5f1lgrs7tp5lpqm97rav45g57d6v4gcd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

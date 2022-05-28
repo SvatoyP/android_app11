@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackground"
+    android:padding="25dp">
+
+    <com.google.android.material.textview.MaterialTextView
+        style="@style/TextFieldCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/input_your_name_hint" />
+
+    <EditText
+        android:id="@+id/nameInput"
+        style="@style/TextField"
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:layout_marginTop="12dp"
+        android:autofillHints="login"
+        android:hint="@string/input_your_name_hint"
+        android:inputType="text"
+        android:gravity="center"
+        android:paddingLeft="16dp"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        style="@style/TextFieldCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/input_your_mail_hint" />
+
+    <EditText
+        android:id="@+id/mailInput"
+        style="@style/TextField"
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:layout_marginTop="12dp"
+        android:autofillHints="password"
+        android:hint="@string/input_email"
+        android:inputType="textEmailAddress"
+        android:gravity="center"
+        android:paddingLeft="16dp"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        style="@style/TextFieldCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/password_hint" />
+
+    <EditText
+        android:id="@+id/newPassword"
+        style="@style/TextField"
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:layout_marginTop="12dp"
+        android:autofillHints="password"
+        android:hint="@string/create_password_hint"
+        android:inputType="textPassword"
+        android:gravity="center"
+        android:paddingLeft="16dp"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        style="@style/TextFieldCaption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/password_confirm_hint" />
+
+    <EditText
+        android:id="@+id/newPasswordConfirm"
+        style="@style/TextField"
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:layout_marginTop="12dp"
+        android:autofillHints="password"
+        android:hint="@string/password_confirm_hint"
+        android:inputType="textPassword"
+        android:gravity="center"
+        android:paddingLeft="16dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/save_button"
+        style="@style/PrimaryButton"
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/button_save"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/not_account"
+        style="@style/AdditionalAction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        tools:text="Уже есть аккаунт?" />
+</LinearLayout>

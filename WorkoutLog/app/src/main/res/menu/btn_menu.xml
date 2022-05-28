@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/btn_schedule"
+        android:icon="@drawable/ic_schedule"
+        android:title="@string/title_schedule"
+        android:orderInCategory="1"/>
+    <item android:id="@+id/btn_attendance"
+        android:icon="@drawable/ic_attendance"
+        android:title="@string/title_attendance"
+        android:orderInCategory="2"/>
+    <item android:id="@+id/btn_personal_account"
+        android:icon="@drawable/ic_personal_account"
+        android:title="@string/title_personal_account"
+        android:orderInCategory="3"/>
+</menu>

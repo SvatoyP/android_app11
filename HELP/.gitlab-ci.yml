@@ -1,0 +1,179 @@
+stages:
+  - analysis
+  - build
+  - deploy
+  - destroy
+
+variables:
+  PROJECT_NAME: "rsk"
+
+  SONAR_PROJECT_NAME: "android-app"
+  SONAR_HOST: ""
+  SONAR_LOGIN: ""
+
+  FIREBASE_SERVICE_ACCOUNT_FILE:
+    description: "Firebase App Distribution service account file json (https://firebase.google.com/docs/app-distribution/android/distribute-fastlane#service-acc-fastlane)"
+  FIREBASE_APP_ID_DEV: 
+    description: "Firebase Dev app id (looks like 1:189206416136:android:a6a7a6a6aa0ba26792926fabd)"
+#  FIREBASE_APP_ID_STAGE:
+#    description: "Firebase Stage app id (looks like 1:189206416136:android:a6a7a6a6aa0ba26792926fabd)"
+  FIREBASE_APP_ID_PROD:
+    description: "Firebase Prod app id (looks like 1:189206416136:android:a6a7a6a6aa0ba26792926fabd)"
+
+  GIT_SUBMODULE_STRATEGY: recursive
+
+sonarqube-review:
+  stage: analysis
+  image:
+    name: pernodricard/sonarqube-scanner
+    entrypoint: [""]
+  environment:
+    name: review/sonarqube/${CI_COMMIT_REF_NAME}
+    url: ${SONAR_HOST}/dashboard?id=${PROJECT_NAME}-${SONAR_PROJECT_NAME}-${CI_COMMIT_REF_SLUG}
+    on_stop: stop-sonarqube-review
+  variables:
+    PROJECT_KEY: ${PROJECT_NAME}-${SONAR_PROJECT_NAME}-${CI_COMMIT_REF_SLUG}
+  script:
+    - apt update && apt-get install -y git curl
+    - bash gitlab-ci/run_sonar_on_mr.sh
+  only:
+    - merge_requests
+
+stop-sonarqube-review:
+  stage: destroy
+  image: curlimages/curl:7.76.0
+  needs: ["sonarqube-review"]
+  variables:
+    PROJECT_KEY: ${PROJECT_NAME}-${SONAR_PROJECT_NAME}-${CI_COMMIT_REF_SLUG}
+  environment:
+    name: review/sonarqube/${CI_COMMIT_REF_NAME}
+    action: stop
+  script:
+    - curl -u ${SONAR_LOGIN} -X POST "${SONAR_HOST}/api/projects/delete?project=${PROJECT_KEY}"
+  only:
+    - merge_requests
+  when: manual
+
+sonarqube-master:
+  stage: analysis
+  image:
+    name: pernodricard/sonarqube-scanner
+    entrypoint: [""]
+  script:
+    - sonar-scanner -D sonar.scm.exclusions.disabled=true -D sonar.host.url=${SONAR_HOST} -D sonar.sources=./app/src -D sonar.projectKey=${PROJECT_NAME}-${SONAR_PROJECT_NAME}-${CI_COMMIT_REF_SLUG} -D sonar.login=${SONAR_LOGIN}
+  only:
+    - master
+
+.build-apk:
+  stage: build
+  image: docker:19.03
+  needs: []
+  script:
+    - export BUILD_FLAVOR_LOWERED=`echo $BUILD_FLAVOR | tr '[:upper:]' '[:lower:]'`
+    - export IMAGE_TAG="${CI_PROJECT_NAME}-${CI_COMMIT_REF_SLUG}-${CI_COMMIT_SHORT_SHA}-${BUILD_FLAVOR_LOWERED}"
+    - echo ${IMAGE_TAG}
+    - find -name "*.apk"
+    - docker build -t $IMAGE_TAG -f ./gitlab-ci/Dockerfile --build-arg FLAVOR=$BUILD_FLAVOR --build-arg BUILD_NUMBER=$BUILD_NUMBER	.
+    - export CONTAINER_ID=$(docker create $IMAGE_TAG)
+    - docker cp "$CONTAINER_ID:/build/app/build/outputs/apk/" .
+    - docker rm -v $CONTAINER_ID
+    - find -name "*.apk"
+    - cp apk/*/*/*.apk .
+  artifacts:
+    paths:
+      - "./*.apk"
+
+build-apk-on-merge-request:
+  variables:
+    BUILD_NUMBER: $CI_PIPELINE_IID
+    BUILD_FLAVOR: DevDebug
+  only:
+    - merge_requests
+  extends: .build-apk
+
+build-apk-dev:
+  variables:
+    BUILD_NUMBER: $CI_PIPELINE_IID
+    BUILD_FLAVOR: DevDebug
+  only:
+    - master
+  extends: .build-apk
+
+#build-apk-stage:
+#  variables:
+#    BUILD_NUMBER: $CI_PIPELINE_IID
+#    BUILD_FLAVOR: StageRelease
+#  only:
+#    - /^([0-9]+\.){2}[0-9]+(-rc\.[0-9]+)?$/
+#  except:
+#    - branches
+#  extends: .build-apk
+
+build-apk-prod:
+  variables:
+    BUILD_NUMBER: $CI_PIPELINE_IID
+    BUILD_FLAVOR: ProdRelease
+  only:
+    - /^v([0-9]+\.){2}[0-9]+(-rc\.[0-9]+)?$/
+#  except:
+#    - branches
+  extends: .build-apk
+
+.deploy-with-fastlane:
+  stage: deploy
+  image: sebbia/fastlane-android:0.3.1
+  before_script:
+    - export APK_FILE=$(find -maxdepth 1 -name "*.apk" -print -quit)
+    - >
+      if [ "$GENERATE_RELEASE_NOTES" == "yes" ]; then
+        export RELEASE_NOTES_FILE=./release_notes.txt
+        git tag -l --format='%(contents)' $CI_COMMIT_TAG > $RELEASE_NOTES_FILE
+        cat $RELEASE_NOTES_FILE
+      fi
+
+.deploy-firebase:
+  extends: .deploy-with-fastlane
+  script:
+    - >
+      fastlane deploy_firebase \
+        "app_id:$APP_ID" \
+        "apk_path:$APK_FILE" \
+        "groups:$TESTER_GROUPS" \
+        "account_json:$FIREBASE_SERVICE_ACCOUNT_FILE" \
+        $([ ! -z "$RELEASE_NOTES_FILE" ] && echo "release_notes_file:$RELEASE_NOTES_FILE")
+
+deploy-firebase-dev:
+  only:
+    - master
+  dependencies:
+    - build-apk-dev
+  variables:
+    TESTER_GROUPS: dev
+    APP_ID: $FIREBASE_APP_ID_DEV
+  extends: .deploy-firebase
+
+#deploy-firebase-stage:
+#  only:
+#    - /^([0-9]+\.){2}[0-9]+(-rc\.[0-9]+)?$/
+#  except:
+#    - branches
+#  dependencies:
+#    - build-apk-stage
+#  variables:
+#    GENERATE_RELEASE_NOTES: "yes"
+#    TESTER_GROUPS: SEBBIA-stage,DonLombard-stage
+#    APP_ID: $FIREBASE_APP_ID_STAGE
+#  extends: .deploy-firebase
+
+deploy-firebase-prod:
+  only:
+    - /^v([0-9]+\.){2}[0-9]+(-rc\.[0-9]+)?$/
+#  except:
+#    - branches
+  dependencies:
+    - build-apk-prod
+  variables:
+    GENERATE_RELEASE_NOTES: "yes"
+    TESTER_GROUPS: prod
+    APP_ID: $FIREBASE_APP_ID_PROD
+  extends: .deploy-firebase

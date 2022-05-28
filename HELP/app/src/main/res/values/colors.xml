@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorBackground">#F9FDFF </color>
+    <color name="colorBgDark">#F0F8FC</color>
+    <color name="colorPrimary">#7863FC</color>
+    <color name="colorAccent">#010100</color>
+    <color name="colorStroke">#C6C6C8</color>
+    <color name="colorDivider">#E6E6E6</color>
+
+    <color name="colorInputLabel">#1B1B24</color>
+    <color name="colorTextInputBg">#FFFFFF</color>
+    <color name="colorTextInputBorder">#272726</color>
+
+    <color name="purple">#9B5EEA</color>
+
+    <color name="darkGreen">#09AC8F</color>
+    <color name="lightGreen">#05E9A4</color>
+
+    <color name="gray">#6D6D6D</color>
+
+    <color name="black">#1B1B24</color>
+
+    <color name="gray_dark">#CC1B1B24</color>
+
+
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="green">#32CD32</color>
+    <color name="yellow">#ffff00</color>
+    <color name="bluelight">#E6E6FA</color>
+    <color name="blueBerl">#003153</color>
+    <color name="mediumslateblue">#7B68EE</color>
+    <color name="lightgreen">#00DD50</color>
+    <color name="greenpotreb">#55FFCC</color>
+    <color name="lightpurple">#9B5EEA</color>
+    <color name="blue_purple">#7863FC</color>
+</resources>

@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">DOKA MOBILE</string>
+    <string name="doka_moile">DOKA MOILE</string>
+    <string name="pudge">Pudge</string>
+    <string name="doka_mobile">DOKA_MOBILE</string>
+    <string name="meepo">Meepo</string>
+    <string name="tinker">Tinker</string>
+    <string name="techies">Techies</string>
+    <string name="invoker">Invoker</string>
+    <string name="krisa">Krisa</string>
+    <string name="shadow_fiend">Shadow Fiend</string>
+    <string name="wraith_king">Wraith King</string>
+</resources>

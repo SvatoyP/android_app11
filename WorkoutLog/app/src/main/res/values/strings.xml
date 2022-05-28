@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">WorkoutLog</string>
+    <string name="n">WorkoutLog</string>
+    <string name="welcome">Welcome to</string>
+    <string name="v">Еще не зарегистрирован?</string>
+    <string name="sing_in">Войти</string>
+    <string name="reg">Зарегистрироваться</string>
+    <string name="name2">Фамилия</string>
+    <string name="name">Имя</string>
+    <string name="login">Логин</string>
+    <string name="pas">Пароль</string>
+    <string name="title_schedule">Расписание</string>
+    <string name="title_attendance">Посещение</string>
+    <string name="title_personal_account">Профиль</string>
+</resources>

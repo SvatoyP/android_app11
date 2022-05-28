@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/app_nav_graph"
+    app:startDestination="@id/mainFragment">
+
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.rsk.android.presentation.ui.main.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_navigatorFragment"
+            app:destination="@id/navigatorFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_mainFragment_to_toolbarAuthFragment"
+            app:destination="@id/toolbarAuthFragment" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigatorFragment"
+        android:name="com.rsk.android.presentation.ui.navigator.NavigatorFragment"
+        android:label="NavigatorFragment" />
+
+    <fragment
+        android:id="@+id/toolbarAuthFragment"
+        android:name="com.rsk.android.presentation.ui.fragments.ToolbarAuthFragment"
+        android:label="ToolbarAuthFragment" />
+
+
+</navigation>

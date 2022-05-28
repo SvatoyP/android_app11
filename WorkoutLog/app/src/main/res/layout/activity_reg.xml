@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistrActivity">
+
+
+    <ImageView
+        android:id="@+id/img_welcom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="22dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/img_reg" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/img_welcom"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/input_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginHorizontal="42dp"
+            android:layout_centerVertical="true"
+            android:ellipsize="start"
+            android:gravity="left"
+            android:hint="@string/name"
+            android:padding="10dp"
+            android:inputType="text"
+            android:background="@drawable/input"/>
+
+        <EditText
+            android:id="@+id/input_name2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginHorizontal="42dp"
+            android:layout_centerVertical="true"
+            android:ellipsize="start"
+            android:gravity="left"
+            android:hint="@string/name2"
+            android:padding="10dp"
+            android:inputType="text"
+            android:background="@drawable/input"/>
+        <EditText
+            android:id="@+id/input_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginHorizontal="42dp"
+            android:layout_centerVertical="true"
+            android:ellipsize="start"
+            android:gravity="left"
+            android:hint="@string/login"
+            android:padding="10dp"
+            android:inputType="text"
+            android:background="@drawable/input"/>
+
+        <EditText
+            android:id="@+id/input_pas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginHorizontal="42dp"
+            android:layout_centerVertical="true"
+            android:ellipsize="start"
+            android:gravity="left"
+            android:hint="@string/pas"
+            android:padding="10dp"
+            android:inputType="text"
+            android:background="@drawable/input"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/sign_in"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="42dp"
+            android:layout_marginTop="20dp"
+            android:paddingVertical="8dp"
+            app:cornerRadius="20dp"
+            android:shadowColor="@color/black"
+            app:backgroundTint="@color/btn"
+            android:fontFamily="@font/poppins_bold"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:text="@string/reg"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

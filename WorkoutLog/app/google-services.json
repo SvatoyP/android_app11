@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "528704192285",
+    "project_id": "workoutlog-4bb09",
+    "storage_bucket": "workoutlog-4bb09.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528704192285:android:ddfef2f9e7906c24d26bf4",
+        "android_client_info": {
+          "package_name": "app.sport.workoutlog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "528704192285-lsmdkoa1kjll5lilncc2uquubvto0nfq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.sport.workoutlog",
+            "certificate_hash": "12c3bd24a1170f487583ac790454901d77772a44"
+          }
+        },
+        {
+          "client_id": "528704192285-su52qed0riuvkhsl0kurm34moufm7du1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaiCCSvHWpAcT2jqwqJgMuZl_9cXmpDXA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "528704192285-su52qed0riuvkhsl0kurm34moufm7du1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,35 @@
+<resources>
+    <string name="login_hint">Введите ваш логин</string>
+    <string name="login_input_hint">Введите логин</string>
+    <string name="password_hint">Введите пароль</string>
+    <string name="button_login">Войти</string>
+    <string name="old_password_hint">Введите старый пароль</string>
+    <string name="input_old_password">Старый пароль</string>
+    <string name="new_password_hint">Введите новый пароль</string>
+    <string name="input_new_password">Новый пароль</string>
+    <string name="new_password_confirm_hint">Повторите новый пароль</string>
+    <string name="button_save">Сохранить</string>
+    <string name="input_your_name_hint">Введите ваше имя</string>
+    <string name="input_your_mail_hint">Введите вашу почту</string>
+    <string name="input_email">Введите e-mail</string>
+    <string name="create_password_hint">Придумайте пароль</string>
+    <string name="password_confirm_hint">Повторите пароль</string>
+
+    <string name="push_notification">Push-уведомления</string>
+    <string name="sms_notification">SMS-уведомления</string>
+    <string name="email_notification">Уведомления на e-mail</string>
+    <string name="change_password">Сменить пароль</string>
+
+    <string name="name_company">ООО “Пупкин и партнеры"</string>
+    <string name="contract_number">Договор №893465</string>
+
+    <string name="documents">Документы</string>
+    <string name="documents_contract">Документы к договору</string>
+    <string name="filter_parameter">Параметры фильтра</string>
+
+    <string name="reports">Отчеты</string>
+
+    <string name="meter_readings">Показания приборов учета</string>
+
+    <string name="services">Услуги</string>
+</resources>

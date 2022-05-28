@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/meter_readings_nav"
+    app:startDestination="@id/meterReadingsFragment">
+
+    <fragment
+        android:id="@+id/meterReadingsFragment"
+        android:name="com.rsk.android.presentation.ui.meter_readings.MeterReadingsFragment"
+        android:label="MeterReadingsFragment"
+        tools:layout="@layout/fragment_meter_readings"/>
+</navigation>
