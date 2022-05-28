@@ -105,6 +105,7 @@ class MainActivity : AppCompatActivity() {
 
         searchView.setSearchableInfo(manager.getSearchableInfo(componentName))
 
+
         binding.userList.isVisible = false
 
         binding.userList.adapter = userAdapter
