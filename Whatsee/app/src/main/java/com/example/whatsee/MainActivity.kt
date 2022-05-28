@@ -1,5 +1,6 @@
 package com.example.whatsee
 
+import android.app.PendingIntent.getActivity
 import android.app.SearchManager
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
@@ -7,9 +8,12 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.WindowManager
-import android.widget.SearchView
+import android.widget.ArrayAdapter
 import androidx.core.view.GravityCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import com.example.whatsee.databinding.ActivityMainBinding
 import com.example.whatsee.fragments.*
 
@@ -27,9 +31,6 @@ class MainActivity : AppCompatActivity() {
             .commit()
 
 
-
-
-
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
@@ -38,10 +39,6 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "Основное меню"
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_menu)
-
-
-
-
 
 
         binding.mainMenuButton.setOnClickListener {
@@ -71,6 +68,7 @@ class MainActivity : AppCompatActivity() {
                 drawer.closeDrawer(GravityCompat.START)
             }
         }
+
         binding.imageAvatar.setOnClickListener {
             supportActionBar?.title = "Профиль"
             openFrag(ProfileFragment.newInstance())
@@ -93,28 +91,46 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onCreateOptionsMenu(menu: Menu?):Boolean{
-        menuInflater.inflate(R.menu.main_menu, menu)
+
+        val inflater = menuInflater
+        inflater.inflate(R.menu.main_menu, menu)
 
         val manager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        val searchItem = menu?.findItem(R.id.search)
-        val searchView = searchItem?.actionView as SearchView
+        val searchItem = menu?.findItem(R.id.searchButt)
+        val searchView = searchItem?.actionView as androidx.appcompat.widget.SearchView
+
+        val user = arrayOf("Vasiliev","Vasya","Ivan", "Sanya","Svatoy", "Arseny","Arsen")
+
+        val userAdapter: ArrayAdapter<String> = ArrayAdapter(this, android.R.layout.simple_list_item_1,user)
 
         searchView.setSearchableInfo(manager.getSearchableInfo(componentName))
 
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        binding.userList.isVisible = false
+
+        binding.userList.adapter = userAdapter
+
+        searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
+                binding.userList.isVisible = true
+
                 searchView.clearFocus()
                 searchView.setQuery("",false)
                 searchItem.collapseActionView()
-                return true
+                if (user.contains(query)) {
+                    userAdapter.filter.filter(query)
+                }
+                return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
+                userAdapter.filter.filter(newText)
+                binding.userList.isVisible = true
                 return false
             }
         })
         return true
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
@@ -134,6 +150,11 @@ class MainActivity : AppCompatActivity() {
         }
         return true
     }
+
+
+
+
+
 }
 
 
