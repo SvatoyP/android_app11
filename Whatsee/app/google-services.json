@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "222844860355",
-    "firebase_url": "https://authwwatch-default-rtdb.europe-west1.firebasedatabase.app",
-    "project_id": "authwwatch",
-    "storage_bucket": "authwwatch.appspot.com"
+    "project_number": "883873245611",
+    "firebase_url": "https://whattowatch-8e344-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "whattowatch-8e344",
+    "storage_bucket": "whattowatch-8e344.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:222844860355:android:fd8ec8f7d8738ad2fcef76",
+        "mobilesdk_app_id": "1:883873245611:android:c7dad47fcbab52cb320aee",
         "android_client_info": {
           "package_name": "com.example.whatsee"
         }
       },
       "oauth_client": [
         {
-          "client_id": "222844860355-p2ofer2be27sl6fakv600qo6r68gq8ll.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.whatsee",
-            "certificate_hash": "c24055dc87becf14441e8737ef16a42314f7b4b3"
-          }
-        },
-        {
-          "client_id": "222844860355-5f1lgrs7tp5lpqm97rav45g57d6v4gcd.apps.googleusercontent.com",
+          "client_id": "883873245611-e47ekm0tjnd6sb8t477d9q21omuej4n5.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAtpHhtnL2zvBPZz_ZRu9tYzjbbxi40xnc"
+          "current_key": "AIzaSyB8lpsXlQvOS99ZiBn5eqMHvn4Dfr3XW2g"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "222844860355-5f1lgrs7tp5lpqm97rav45g57d6v4gcd.apps.googleusercontent.com",
+              "client_id": "883873245611-e47ekm0tjnd6sb8t477d9q21omuej4n5.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

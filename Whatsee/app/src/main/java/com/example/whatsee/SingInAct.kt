@@ -18,6 +18,7 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 class SingInAct : AppCompatActivity() {
@@ -38,6 +39,7 @@ class SingInAct : AppCompatActivity() {
 
         auth = Firebase.auth
         launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+
         val task = GoogleSignIn.getSignedInAccountFromIntent(it.data)
             try {
                 val account = task.getResult(ApiException::class.java)
@@ -58,7 +60,7 @@ class SingInAct : AppCompatActivity() {
 
     private fun getClient():GoogleSignInClient{
         val gso = GoogleSignInOptions
-            .Builder(GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN)
+            .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
@@ -86,6 +88,8 @@ class SingInAct : AppCompatActivity() {
         if(auth.currentUser != null){
             val i = Intent(this, MainActivity::class.java)
             startActivity(i)
+        }else{
+            Log.d("MyLog","Google signIn error on check")
         }
     }
 }

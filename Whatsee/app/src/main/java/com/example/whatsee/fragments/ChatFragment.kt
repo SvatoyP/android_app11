@@ -32,7 +32,7 @@ class ChatFragment : Fragment() {
         binding = FragmentChatBinding.inflate(inflater)
 
 
-        val database = Firebase.database
+        val database = Firebase.database("https://whattowatch-8e344-default-rtdb.europe-west1.firebasedatabase.app")
         val myRef = database.getReference("message")
         binding.bSend.setOnClickListener{
             myRef.child(myRef.push().key?:"any_way").setValue(User(auth.currentUser?.displayName, binding.edMessage.text.toString()))

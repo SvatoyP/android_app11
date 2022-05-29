@@ -83,6 +83,14 @@ class MainActivity : AppCompatActivity() {
                 drawer.closeDrawer(GravityCompat.START)
             }
         }
+        binding.chatButton.setOnClickListener {
+            supportActionBar?.title = "Чат"
+            openFrag(ChatFragment.newInstance())
+            android.R.id.home
+            binding.apply {
+                drawer.closeDrawer(GravityCompat.START)
+            }
+        }
 
     }
 
@@ -166,14 +174,14 @@ class MainActivity : AppCompatActivity() {
     private fun setProfileImage(){
         val profileAvatar = binding.imageAvatar
         val profileName = binding.userName
-        Thread{
+
             val bMap = Picasso.get().load(auth.currentUser?.photoUrl).get()
             val dIcon = BitmapDrawable(resources, bMap)
-            runOnUiThread {
+
                 profileAvatar.setImageDrawable(dIcon)
                 profileName.text = auth.currentUser?.displayName
-            }
-        }.start()
+
+
 
     }
 }
