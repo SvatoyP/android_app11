@@ -94,6 +94,20 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun setProfileImage(){
+        val profileAvatar = binding.imageAvatar
+        val profileName = binding.userName
+
+        val bMap = Picasso.get().load(auth.currentUser?.photoUrl).get()
+        val dIcon = BitmapDrawable(resources, bMap)
+
+        profileAvatar.setImageDrawable(dIcon)
+        profileName.text = auth.currentUser?.displayName
+
+
+
+    }
+
     private fun openFrag(f: Fragment){
         supportFragmentManager
             .beginTransaction()
@@ -171,19 +185,7 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    private fun setProfileImage(){
-        val profileAvatar = binding.imageAvatar
-        val profileName = binding.userName
 
-            val bMap = Picasso.get().load(auth.currentUser?.photoUrl).get()
-            val dIcon = BitmapDrawable(resources, bMap)
-
-                profileAvatar.setImageDrawable(dIcon)
-                profileName.text = auth.currentUser?.displayName
-
-
-
-    }
 }
 
 
