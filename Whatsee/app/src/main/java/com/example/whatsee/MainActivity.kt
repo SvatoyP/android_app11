@@ -1,8 +1,8 @@
 package com.example.whatsee
 
-import android.app.PendingIntent.getActivity
 import android.app.SearchManager
 import android.content.Context
+import android.graphics.drawable.BitmapDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -12,18 +12,24 @@ import android.widget.ArrayAdapter
 import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import com.example.whatsee.databinding.ActivityMainBinding
 import com.example.whatsee.fragments.*
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
+import com.squareup.picasso.Picasso
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
+    lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        auth = Firebase.auth
 
         supportFragmentManager
             .beginTransaction()
@@ -95,6 +101,8 @@ class MainActivity : AppCompatActivity() {
         val inflater = menuInflater
         inflater.inflate(R.menu.main_menu, menu)
 
+
+
         val manager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         val searchItem = menu?.findItem(R.id.searchButt)
         val searchView = searchItem?.actionView as androidx.appcompat.widget.SearchView
@@ -133,6 +141,10 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.sign_out){
+            auth.signOut()
+            finish()
+        }
         when(item.itemId){
             android.R.id.home -> {
                 binding.apply {
@@ -151,10 +163,19 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+    private fun setProfileImage(){
+        val profileAvatar = binding.imageAvatar
+        val profileName = binding.userName
+        Thread{
+            val bMap = Picasso.get().load(auth.currentUser?.photoUrl).get()
+            val dIcon = BitmapDrawable(resources, bMap)
+            runOnUiThread {
+                profileAvatar.setImageDrawable(dIcon)
+                profileName.text = auth.currentUser?.displayName
+            }
+        }.start()
 
-
-
-
+    }
 }
 
 

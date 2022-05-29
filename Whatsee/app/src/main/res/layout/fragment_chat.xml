@@ -10,17 +10,25 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/button"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcView"
+            android:layout_width="match_parent"
+            android:layout_height="637dp" />
+
+        <EditText
+            android:id="@+id/edMessage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Chat 1" />
+            android:ems="10"
+            android:hint="message"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:text="Name" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/bSend"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Chat 2" />
-
+            android:text="Send" />
     </LinearLayout>
 </FrameLayout>

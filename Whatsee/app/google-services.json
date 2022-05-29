@@ -8,14 +8,14 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:222844860355:android:8d161eac64d1a11dfcef76",
+        "mobilesdk_app_id": "1:222844860355:android:fd8ec8f7d8738ad2fcef76",
         "android_client_info": {
           "package_name": "com.example.whatsee"
         }
       },
       "oauth_client": [
         {
-          "client_id": "222844860355-58e2v67h6dllket14onpj8hr6bjg2oi6.apps.googleusercontent.com",
+          "client_id": "222844860355-p2ofer2be27sl6fakv600qo6r68gq8ll.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.whatsee",

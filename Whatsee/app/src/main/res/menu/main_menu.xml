@@ -10,5 +10,11 @@
         app:showAsAction="ifRoom|collapseActionView"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         />
+    <item
+        android:title="Sign Out"
+        android:id="@+id/sign_out"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/exit_button"
+        />
 
 </menu>
