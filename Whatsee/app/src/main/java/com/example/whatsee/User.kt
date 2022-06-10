@@ -1,6 +1,7 @@
 package com.example.whatsee
 
-data class User(
-    val name: String? = null,
-    val message: String? = null
+
+data class User (
+    var name: String? = null,
+    var message: String? = null
 )

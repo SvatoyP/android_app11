@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Svatoy/AndroidStudioProjects/Whatsee/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3712962962962963" />
         <entry key="..\:/Users/Svatoy/AndroidStudioProjects/Whatsee/app/src/main/res/drawable/buttons.xml" value="0.36944444444444446" />
+        <entry key="..\:/Users/Svatoy/AndroidStudioProjects/Whatsee/app/src/main/res/drawable/exit_button.xml" value="0.3712962962962963" />
+        <entry key="..\:/Users/Svatoy/AndroidStudioProjects/Whatsee/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3712962962962963" />
         <entry key="..\:/Users/Svatoy/AndroidStudioProjects/Whatsee/app/src/main/res/drawable/ic_menu.xml" value="0.33425925925925926" />
         <entry key="..\:/Users/Svatoy/AndroidStudioProjects/Whatsee/app/src/main/res/drawable/searchview_background.xml" value="0.3675925925925926" />
         <entry key="..\:/Users/Svatoy/AndroidStudioProjects/Whatsee/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
@@ -16,6 +19,8 @@
         <entry key="..\:/Users/Svatoy/AndroidStudioProjects/Whatsee/app/src/main/res/layout/fragment_sub.xml" value="0.35688405797101447" />
         <entry key="..\:/Users/Svatoy/AndroidStudioProjects/Whatsee/app/src/main/res/layout/user_list_item.xml" value="0.36277173913043476" />
         <entry key="..\:/Users/Svatoy/AndroidStudioProjects/Whatsee/app/src/main/res/menu/main_menu.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Svatoy/AndroidStudioProjects/Whatsee/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3712962962962963" />
+        <entry key="..\:/Users/Svatoy/AndroidStudioProjects/Whatsee/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3712962962962963" />
         <entry key="..\:/Users/Svatoy/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_list_item_1.xml" value="0.36666666666666664" />
       </map>
     </option>

@@ -80,12 +80,12 @@
                         android:layout_height="130dp" />
 
                     <TextView
-                        android:id="@+id/textView2"
+                        android:id="@+id/profileName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="textStart"
                         android:textColor="#000000"
-                        android:textSize="14sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>

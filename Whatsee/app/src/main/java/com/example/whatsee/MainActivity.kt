@@ -2,6 +2,7 @@ package com.example.whatsee
 
 import android.app.SearchManager
 import android.content.Context
+import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -30,6 +31,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         auth = Firebase.auth
+
+
+        setProfileImage()
 
         supportFragmentManager
             .beginTransaction()
@@ -95,16 +99,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setProfileImage(){
-        val profileAvatar = binding.imageAvatar
-        val profileName = binding.userName
-
-        val bMap = Picasso.get().load(auth.currentUser?.photoUrl).get()
-        val dIcon = BitmapDrawable(resources, bMap)
-
-        profileAvatar.setImageDrawable(dIcon)
-        profileName.text = auth.currentUser?.displayName
 
 
+        Thread{
+            val bMap = Picasso.get().load(auth.currentUser?.photoUrl).get()
+            val dIcon = BitmapDrawable(resources, bMap)
+            binding.imageAvatar.setImageDrawable(dIcon)
+        }.start()
+
+        binding.userName.text = auth.currentUser?.displayName
 
     }
 

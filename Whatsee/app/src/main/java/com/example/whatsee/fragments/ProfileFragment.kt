@@ -14,6 +14,8 @@ import com.example.whatsee.R
 import com.example.whatsee.databinding.ActivityMainBinding
 import com.example.whatsee.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
 
 class ProfileFragment : Fragment(){
@@ -26,16 +28,20 @@ class ProfileFragment : Fragment(){
     ): View? {
         binding = FragmentProfileBinding.inflate(inflater)
 
-        val bMap = Picasso.get().load(auth.currentUser?.photoUrl).get()
-        val dIcon = BitmapDrawable(resources, bMap)
-        binding.profileImage.setImageDrawable(dIcon)
+        auth = Firebase.auth
 
-        binding.textView2.text = auth.currentUser?.displayName
+        Thread{
+            val bMap = Picasso.get().load(auth.currentUser?.photoUrl).get()
+            val dIcon = BitmapDrawable(resources, bMap)
+            binding.profileImage.setImageDrawable(dIcon)
+        }.start()
+
+        binding.profileName.text = auth.currentUser?.displayName
+
 
 
 
         return binding.root
-
     }
 
 
