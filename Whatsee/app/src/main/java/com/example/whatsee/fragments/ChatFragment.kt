@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.size
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewbinding.ViewBinding
 import com.example.whatsee.R
@@ -38,22 +39,30 @@ class ChatFragment : Fragment() {
 
         val database = Firebase.database
         val myRef = database.getReference("message")
+
         binding.bSend.setOnClickListener{
             myRef.child(myRef.push().key?:"any").setValue(User(auth.currentUser?.displayName, binding.edMessage.text.toString()))
+            binding.edMessage.setText("")
         }
+
         onChangeListener(myRef)
         initRcView()
 
+
+
+
+
         return binding.root
     }
+
+
+
 
     private fun initRcView() = with(binding){
         adapter = UserAdapter()
         rcView.layoutManager = LinearLayoutManager(activity)
         rcView.adapter = adapter
     }
-
-
 
     private fun onChangeListener(dRef:DatabaseReference){
         dRef.addValueEventListener(object :ValueEventListener{
@@ -72,7 +81,6 @@ class ChatFragment : Fragment() {
 
         })
     }
-
 
     companion object {
         @JvmStatic

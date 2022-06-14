@@ -2,6 +2,7 @@ package com.example.whatsee
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.size
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
