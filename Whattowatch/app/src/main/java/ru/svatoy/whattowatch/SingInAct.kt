@@ -1,5 +1,7 @@
 package ru.svatoy.whattowatch
 
+import android.content.ContentValues
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -14,6 +16,7 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import ru.svatoy.whattowatch.databinding.ActivitySingInBinding
 
@@ -51,6 +54,7 @@ class SingInAct : AppCompatActivity() {
         binding.bSingIn.setOnClickListener{
             singInWithGoogle()
         }
+        checkNewUser()
         checkAuthState()
     }
 
@@ -88,4 +92,37 @@ class SingInAct : AppCompatActivity() {
             Log.d("MyLog","Google signIn error on check")
         }
     }
+
+    private fun sendNewUser(){
+        auth = Firebase.auth
+        val db = Firebase.firestore
+        val currentEmail = auth.currentUser?.email
+        val user = hashMapOf(
+            "name" to auth.currentUser?.displayName.toString(),
+            "email" to auth.currentUser?.email.toString(),
+            "avatarURL" to auth.currentUser?.photoUrl.toString(),
+
+
+        )
+        db.collection("users").document(currentEmail.toString())
+            .set(user)
+            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!") }
+            .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
+    }
+
+    private fun checkNewUser() {
+        auth = Firebase.auth
+        val db = Firebase.firestore
+        val currentEmail = auth.currentUser?.email
+        val searchDoc = db.collection("users").document(currentEmail.toString())
+
+        if(searchDoc != null){
+            Log.d("MyLog","User got reg")
+        }else{
+            sendNewUser()
+        }
+    }
 }
+
+
+
