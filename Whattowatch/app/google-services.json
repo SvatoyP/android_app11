@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "292263223333",
+    "firebase_url": "https://what-to-watch-8b51c-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "what-to-watch-8b51c",
+    "storage_bucket": "what-to-watch-8b51c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292263223333:android:fef3fe924e67c3bbc91fcc",
+        "android_client_info": {
+          "package_name": "ru.svatoy.whattowatch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "292263223333-ouv21k7kqujbkvnss5nvc48jqbnj48ko.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ru.svatoy.whattowatch",
+            "certificate_hash": "c24055dc87becf14441e8737ef16a42314f7b4b3"
+          }
+        },
+        {
+          "client_id": "292263223333-tl4urkea6r3t5k7g8q52b6scecqevhvl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfzIqCRhjjp3M3XXa_zPTo-ujpkuRKIno"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "292263223333-tl4urkea6r3t5k7g8q52b6scecqevhvl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

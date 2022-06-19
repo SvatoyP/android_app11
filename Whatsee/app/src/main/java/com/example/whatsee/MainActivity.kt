@@ -1,11 +1,13 @@
 package com.example.whatsee
 
 import android.app.SearchManager
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.WindowManager
@@ -17,7 +19,11 @@ import com.example.whatsee.databinding.ActivityMainBinding
 import com.example.whatsee.fragments.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
 
@@ -32,7 +38,8 @@ class MainActivity : AppCompatActivity() {
 
         auth = Firebase.auth
 
-
+        //checkNewUser()
+        sendNewUser()
         setProfileImage()
 
         supportFragmentManager
@@ -47,12 +54,15 @@ class MainActivity : AppCompatActivity() {
         )
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Основное меню"
+        supportActionBar?.title = "Новости"
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_menu)
 
 
+
+
+
         binding.mainMenuButton.setOnClickListener {
-            supportActionBar?.title = "Основное меню"
+            supportActionBar?.title = "Новости"
             openFrag(MainFragment.newInstance())
             android.R.id.home
             binding.apply {
@@ -126,13 +136,13 @@ class MainActivity : AppCompatActivity() {
         val inflater = menuInflater
         inflater.inflate(R.menu.main_menu, menu)
 
-
+        val user = arrayOf("")
 
         val manager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         val searchItem = menu?.findItem(R.id.searchButt)
         val searchView = searchItem?.actionView as androidx.appcompat.widget.SearchView
 
-        val user = arrayOf("Vasiliev","Vasya","Ivan", "Sanya","Svatoy", "Arseny","Arsen")
+
 
         val userAdapter: ArrayAdapter<String> = ArrayAdapter(this, android.R.layout.simple_list_item_1,user)
 
@@ -188,8 +198,48 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+    private fun sendNewUser(){
+            auth = Firebase.auth
+            val db = Firebase.firestore
+            val user = hashMapOf(
+                "name" to auth.currentUser?.displayName.toString(),
+                "email" to auth.currentUser?.email.toString(),
+                "avatarURL" to auth.currentUser?.photoUrl.toString(),
+            )
+            db.collection("users")
+                .add(user)
+                .addOnSuccessListener  { documentReference ->
+                    Log.d(TAG, "DocumentSnapshot added with ID:  ${documentReference.id}")
+                }
+                .addOnFailureListener { e ->
+                    Log.w(TAG, "Error adding document", e)
+                }
+    }
 
+    private fun checkNewUser() {
+        auth = Firebase.auth
+        val db = Firebase.firestore
+
+        val currentEmail = auth.currentUser?.email
+
+        db.collection("users")
+            .whereEqualTo("email", currentEmail.toString())
+            .get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    Log.d(TAG, "${document.id} => ${document.data}")
+                }
+            }
+            .addOnFailureListener {
+                sendNewUser()
+            }
+
+    }
 }
+
+
+
+
 
 
 

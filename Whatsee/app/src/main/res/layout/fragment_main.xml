@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="61dp"
             android:paddingTop="20dp"
-            android:text="Основное меню"
+            android:text="Новости"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="20sp"
