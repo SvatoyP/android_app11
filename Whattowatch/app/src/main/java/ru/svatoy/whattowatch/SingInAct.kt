@@ -78,6 +78,7 @@ class SingInAct : AppCompatActivity() {
         auth.signInWithCredential(credential).addOnCompleteListener {
             if (it.isSuccessful){
                 Log.d("MyLog","Google signIn done")
+                checkNewUser()
                 checkAuthState()
             }else {
                 Log.d("MyLog","Google signIn error")

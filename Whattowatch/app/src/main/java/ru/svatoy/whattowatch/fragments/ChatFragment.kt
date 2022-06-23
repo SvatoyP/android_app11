@@ -5,14 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.size
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.viewbinding.ViewBinding
-import ru.svatoy.whattowatch.R
 import ru.svatoy.whattowatch.User
 import ru.svatoy.whattowatch.UserAdapter
 import ru.svatoy.whattowatch.databinding.FragmentChatBinding
-import ru.svatoy.whattowatch.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -20,9 +16,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.ktx.auth
-
 
 class ChatFragment : Fragment() {
     lateinit var binding: FragmentChatBinding
@@ -44,18 +38,12 @@ class ChatFragment : Fragment() {
             myRef.child(myRef.push().key?:"any").setValue(User(auth.currentUser?.displayName, binding.edMessage.text.toString()))
             binding.edMessage.setText("")
         }
-
         onChangeListener(myRef)
         initRcView()
 
 
-
-
-
         return binding.root
     }
-
-
 
 
     private fun initRcView() = with(binding){

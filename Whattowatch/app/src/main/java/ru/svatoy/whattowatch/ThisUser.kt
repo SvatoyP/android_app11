@@ -1,11 +1,23 @@
 package ru.svatoy.whattowatch
 
-object ThisUser {
-    val name = "name"
-    val email = "email"
-    val avatarURL = "avatarURL"
-    val description = "Description"
-    val firstURL = "Twitch url"
-    val secondURL = "YouTube url"
-    val tridURL = "Other url"
+object ThisUser{
+    val name = ""
+    val email = ""
+    val avatarURL = ""
+    val description = ""
+    val firstURL = ""
+    val secondURL = ""
+    val tridURL = ""
 }
+
+//data class ThisUser (
+//    val name: String? = "",
+//    val email: String? = "",
+//    val avatarURL: String? = "",
+//    val description: String? = "",
+//    val firstURL: String? = "",
+//    val secondURL: String? = "",
+//    val tridURL: String? = "",
+//){
+//    constructor(): this ("","","","","","","")
+//}
