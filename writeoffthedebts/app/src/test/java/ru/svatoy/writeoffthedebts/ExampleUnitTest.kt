@@ -1,4 +1,4 @@
-package ru.svatoy.whattowatch
+package ru.svatoy.writeoffthedebts
 
 import org.junit.Test
 
