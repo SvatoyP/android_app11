@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_2"
+    tools:context=".app.registration.activity.fragments.GuidFragment">
+
+    <Button
+        android:id="@+id/next_button4"
+        android:layout_width="330dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="@color/accent_1"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Продолжить"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="215dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="177dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Здесь вы сможете"
+        android:textAlignment="viewStart"
+        android:textColor="@color/primary_text"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.853"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="284dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="177dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Также как сплочённость команды профессионалов"
+        android:textAlignment="viewStart"
+        android:textColor="@color/primary_text"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="284dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="177dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Также как сплочённость команды профессионалов"
+        android:textAlignment="viewStart"
+        android:textColor="@color/primary_text"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="284dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="177dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Также как сплочённость команды профессионалов"
+        android:textAlignment="viewStart"
+        android:textColor="@color/primary_text"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="308dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="140dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Добро пожаловать, "
+        android:textAlignment="textStart"
+        android:textColor="@color/primary_text"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.012"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="155dp"
+        android:src="@drawable/img_vectoremoji"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

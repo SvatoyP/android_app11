@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_2"
+    tools:context=".app.main_window.fragments.helpFragments.GetHelpFragmentUserData">
+
+    <TextView
+        android:id="@+id/errorTextNumber4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/roboto_medium"
+        android:textAlignment="center"
+        android:textColor="@color/red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.275"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutSumm" />
+
+    <TextView
+        android:id="@+id/errorTextNumber5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/roboto_medium"
+        android:textAlignment="center"
+        android:textColor="@color/red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.275"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutGetProblen" />
+
+    <Button
+        android:id="@+id/getHelpButton2"
+        android:layout_width="365dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="23dp"
+        android:backgroundTint="@color/accent_1"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Отправить"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="14dp"
+        android:visibility="visible"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutGetProblen" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutSumm"
+        android:layout_width="373dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:backgroundTint="@color/accent_1"
+        android:foregroundTint="@color/accent_1"
+        app:boxStrokeColor="@color/accent_1"
+        app:errorEnabled="true"
+        app:helperTextEnabled="true"
+        app:helperTextTextColor="@color/red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/summ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/accent_1"
+            android:drawableTint="@color/accent_1"
+            android:foregroundTint="@color/accent_1"
+            android:hint="Сумма долга" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutBanks"
+        android:layout_width="373dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="24dp"
+        android:backgroundTint="@color/accent_1"
+        android:foregroundTint="@color/accent_1"
+        app:boxStrokeColor="@color/accent_1"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutSumm">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/banks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Количество банков и МФО " />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutGetProblen"
+        android:layout_width="370dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/accent_1"
+        android:foregroundTint="@color/accent_1"
+        app:boxStrokeColor="@color/accent_1"
+        android:layout_marginEnd="24dp"
+        app:errorEnabled="true"
+        app:helperTextEnabled="true"
+        app:helperTextTextColor="@color/red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutBanks">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/getProblem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:hint="Опишите  вашу проблему" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="407dp"
+        android:layout_height="82dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/backArrow4"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/ic_icone_leftarrow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="26dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="Нужна помощь"
+            android:textAlignment="textStart"
+            android:textColor="@color/primary_text"
+            android:textSize="22dp"
+            app:layout_constraintStart_toEndOf="@+id/backArrow4"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

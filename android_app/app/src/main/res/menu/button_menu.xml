@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/mainMenuItem"
+        android:icon="@drawable/ic_iconehome"
+        android:title="Главная"
+        android:orderInCategory="1"/>
+
+    <item android:id="@+id/createThemeItem"
+        android:icon="@drawable/ic_iconecreatetheme"
+        android:title="Создать тему"
+        android:orderInCategory="2"/>
+
+    <item android:id="@+id/helpItem"
+        android:icon="@drawable/ic_iconehelpitem"
+        android:title="Помощь"
+        android:orderInCategory="3"/>
+
+    <item android:id="@+id/notificationsItem"
+        android:icon="@drawable/ic_iconenotifications"
+        android:title="Уведомления"
+        android:orderInCategory="4"/>
+
+</menu>
